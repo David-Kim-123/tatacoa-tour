@@ -7,7 +7,7 @@
 # INFORME DE INVESTIGACIÓN: FUNDAMENTOS DE TAILWIND CSS, SISTEMAS DE DISEÑO UX/UI Y DESARROLLO FRONTEND ASISTIDO POR INTELIGENCIA ARTIFICIAL
 
 **Asignatura:** Desarrollo Web Frontend / Ingeniería Web  
-**Estudiante:** Juan David Rodríguez  
+**Estudiante:** Juan David Quimbayo Serrato  
 **Docente:** Ing. [Nombre del Docente]  
 **Institución:** Fundación Escuela Tecnológica de Neiva "Jesús Oviedo Pérez" (FET)  
 **Fecha:** Noviembre de 2026  
@@ -55,25 +55,25 @@
 
 ## 1. Introducción
 
-El desarrollo de interfaces de usuario para la web contemporánea ha experimentado una profunda metamorfosis impulsada por dos fuerzas convergentes: la necesidad de estandarizar sistemas de diseño ágiles y consistentes a través de arquitecturas CSS modernas, y la irrupción acelerada de modelos de lenguaje basados en inteligencia artificial generativa dentro del flujo de trabajo de la ingeniería de software. Durante décadas, el diseño web estuvo condicionado por dos extremos paradigmáticos: la escritura artesanal de hojas de estilo en cascada (CSS tradicional) bajo convenciones semánticas rígidas como BEM (Block Element Modifier), la cual demandaba altos costos de mantenimiento y derivaba en hojas de estilo infladas (*CSS bloat*); o la adopción de bibliotecas de componentes prefabricados como Bootstrap, que facilitaban la velocidad inicial a expensas de la originalidad visual y la flexibilidad de personalización.
+El desarrollo de interfaces de usuario para la web contemporánea ha experimentado una profunda metamorfosis impulsada por dos fuerzas convergentes: la necesidad de estandarizar sistemas de diseño á[...]
 
-En este contexto emerge **Tailwind CSS**, una herramienta que consolidó el paradigma *utility-first*, permitiendo construir interfaces complejas directamente desde el marcado mediante clases de utilidad de propósito único. Al vincular estrechamente la estructura semántica con tokens de diseño reutilizables, Tailwind no solo optimiza el rendimiento final en producción mediante compiladores basados en análisis estático, sino que reduce radicalmente el cambio de contexto entre archivos. Simultáneamente, la incorporación de asistentes de inteligencia artificial como ChatGPT, Claude, GitHub Copilot y Gemini ha redefinido el rol del programador frontend, desplazando el foco desde la memorización sintáctica hacia la formulación precisa de requerimientos, la supervisión de la accesibilidad y la depuración crítica de código.
+En este contexto emerge **Tailwind CSS**, una herramienta que consolidó el paradigma *utility-first*, permitiendo construir interfaces complejas directamente desde el marcado mediante clases de utili[...]
 
-El presente informe expone un análisis riguroso de los fundamentos técnicos de Tailwind CSS —haciendo especial énfasis en las transformaciones introducidas en su versión 4—, evalúa el impacto metodológico de la inteligencia artificial generativa en la construcción de interfaces accesibles y sustentables, y articula estos conceptos con los principios universales del diseño visual y la experiencia de usuario (UX/UI). Para validar experimentalmente las hipótesis abordadas, la investigación se contrasta con el desarrollo práctico de la plataforma digital para *"Tatacoa Starlight Expeditions"*, un proyecto turístico y astronómico representativo del departamento del Huila.
+El presente informe expone un análisis riguroso de los fundamentos técnicos de Tailwind CSS —haciendo especial énfasis en las transformaciones introducidas en su versión 4—, evalúa el impacto[...]
 
 ---
 
 ## 2. Eje 1: Fundamentos de Tailwind CSS
 
 ### 1.1 Origen, creadores y problemática que resuelve
-Tailwind CSS fue concebido y liberado como proyecto de código abierto a finales del año **2017** por el desarrollador canadiense **Adam Wathan**, en estrecha colaboración con el diseñador de interfaces **Steve Schoger**. El proyecto nació formalmente como respuesta a los problemas crónicos que enfrentaban los equipos de software al trabajar con CSS tradicional en proyectos de mediana y gran envergadura.
+Tailwind CSS fue concebido y liberado como proyecto de código abierto a finales del año **2017** por el desarrollador canadiense **Adam Wathan**, en estrecha colaboración con el diseñador de inter[...] 
 
-Bajo el modelo clásico de CSS, los desarrolladores estaban obligados a inventar constantemente nombres de clases abstractas (`.card-header-inner-title-bold`), lo que generaba fricción cognitiva y duplicación innecesaria de reglas. A medida que un proyecto crecía, modificar una clase en una hoja de estilos global conllevaba el riesgo latente de generar efectos secundarios no deseados en otras páginas (*regresiones visuales*). En consecuencia, las hojas de estilo tendían a crecer de forma monotónica e irreversible: ningún desarrollador se atrevía a borrar selectores antiguos por temor a romper la interfaz, provocando archivos CSS de varios megabytes cargados en el cliente.
+Bajo el modelo clásico de CSS, los desarrolladores estaban obligados a inventar constantemente nombres de clases abstractas (`.card-header-inner-title-bold`), lo que generaba fricción cognitiva y du[...]
 
-Tailwind CSS resuelve este problema transformando la abstracción: en lugar de abstraer componentes en CSS, **abstrae las propiedades en clases utilitarias inmutables**. Al aplicar utilidades atómicas directamente en el HTML, el archivo CSS generado deja de crecer proporcionalmente a la cantidad de páginas o vistas que tenga el sistema.
+Tailwind CSS resuelve este problema transformando la abstracción: en lugar de abstraer componentes en CSS, **abstrae las propiedades en clases utilitarias inmutables**. Al aplicar utilidades atómica[...]
 
 ### 1.2 El enfoque Utility-First: Comparativa práctica de código
-El enfoque *utility-first* (utilidad primero) estipula que los elementos de la interfaz deben construirse mediante la composición de clases CSS atómicas predeterminadas, cada una encargada de una propiedad de renderizado específica (color, relleno, tipografía, bordes, alineación).
+El enfoque *utility-first* (utilidad primero) estipula que los elementos de la interfaz deben construirse mediante la composición de clases CSS atómicas predeterminadas, cada una encargada de una pr[...]
 
 Para comprender la diferencia estructural entre el modelo tradicional y el modelo *utility-first*, analicemos la implementación de un mismo botón de llamada a la acción con estados interactivos:
 
@@ -117,43 +117,43 @@ Para comprender la diferencia estructural entre el modelo tradicional y el model
 #### B. Implementación con Tailwind CSS
 ```html
 <!-- Marcado autónomo con clases utilitarias -->
-<button class="inline-flex items-center justify-center px-6 py-3 font-display text-sm font-bold text-white bg-terracotta-600 rounded-xl shadow-md transition-all duration-200 hover:bg-terracotta-700 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-accent cursor-pointer">
+<button class="inline-flex items-center justify-center px-6 py-3 font-display text-sm font-bold text-white bg-terracotta-600 rounded-xl shadow-md transition-all duration-200 hover:bg-terracotta-700 ho[...]
   Reservar Cupo
 </button>
 ```
 
-**Análisis comparativo:** En el enfoque tradicional se requiere alternar permanentemente entre dos archivos, inventar un nombre de clase y gestionar especificidades CSS en cascada. En Tailwind, el botón describe con precisión su comportamiento visual en el propio marcado. Además, si el botón se elimina, no queda ninguna regla residual huérfana en la hoja de estilos global.
+**Análisis comparativo:** En el enfoque tradicional se requiere alternar permanentemente entre dos archivos, inventar un nombre de clase y gestionar especificidades CSS en cascada. En Tailwind, el bo[...]
 
 ### 1.3 Arquitectura y funcionamiento interno (Compilación bajo demanda)
-Durante sus primeras versiones (v1 y v2), Tailwind generaba un archivo masivo con todas las combinaciones posibles de utilidades (que podía alcanzar más de 10 MB en desarrollo) y dependía de la herramienta externa `PurgeCSS` para analizar los archivos HTML y eliminar las clases no utilizadas antes del despliegue en producción.
+Durante sus primeras versiones (v1 y v2), Tailwind generaba un archivo masivo con todas las combinaciones posibles de utilidades (que podía alcanzar más de 10 MB en desarrollo) y dependía de la her[...]
 
 A partir del motor **JIT (Just-in-Time)** y consolidado en el nuevo motor **Oxide**, Tailwind funciona mediante un **analizador léxico estático de alto rendimiento**:
-1. El compilador escanea en milisegundos todo el código fuente del proyecto (archivos `.html`, `.js`, etc.) buscando cadenas de texto que coincidan con la estructura sintáctica de una clase utilitaria.
+1. El compilador escanea en milisegundos todo el código fuente del proyecto (archivos `.html`, `.js`, etc.) buscando cadenas de texto que coincidan con la estructura sintáctica de una clase utilitar[...]
 2. Al identificar una clase (por ejemplo, `px-6` o `hover:bg-terracotta-700`), el motor genera dinámicamente y bajo demanda únicamente la regla CSS exacta necesaria.
 3. El resultado final compilado para producción es un archivo CSS minúsculo (habitualmente inferior a 25 KB), independientemente de qué tan extenso sea el sitio web.
 
 ### 1.4 Tailwind CSS v4 frente a la versión 3: Principales transformaciones
-La llegada de **Tailwind CSS v4** a finales de 2024 y su consolidación en 2025-2026 representa la reingeniería más ambiciosa en la historia del framework. Las tres diferencias arquitectónicas fundamentales frente a la versión 3 son:
+La llegada de **Tailwind CSS v4** a finales de 2024 y su consolidación en 2025-2026 representa la reingeniería más ambiciosa en la historia del framework. Las tres diferencias arquitectónicas fund[...]
 
-1. **Nuevo motor Oxide reescrito en Rust:** Se abandonó la dependencia histórica de Node.js y PostCSS para el núcleo del compilador. El motor nativo en Rust multiplica la velocidad de compilación hasta por 10 veces en proyectos gigantescos y reduce el consumo de memoria.
-2. **Configuración CSS-First con la directiva `@theme`:** En Tailwind v3, la personalización de fuentes, colores y espaciados requería obligatoriamente un archivo JavaScript central (`tailwind.config.js`). En Tailwind v4, toda la configuración se realiza directamente dentro de la hoja de estilos mediante la directiva `@theme`, aprovechando variables CSS nativas (*CSS custom properties*), eliminando capas de configuración innecesarias.
-3. **Sintaxis simplificada de importación y soporte nativo de CSS moderno:** Se reemplazaron las tres directivas tradicionales (`@tailwind base; @tailwind components; @tailwind utilities;`) por una única declaración moderna: `@import "tailwindcss";`. Además, Tailwind 4 incluye soporte nativo para *Container Queries*, pseudo-clases modernas como `:has()` y animaciones con `@starting-style` sin necesidad de plugins externos.
+1. **Nuevo motor Oxide reescrito en Rust:** Se abandonó la dependencia histórica de Node.js y PostCSS para el núcleo del compilador. El motor nativo en Rust multiplica la velocidad de compilación [...]
+2. **Configuración CSS-First con la directiva `@theme`:** En Tailwind v3, la personalización de fuentes, colores y espaciados requería obligatoriamente un archivo JavaScript central (`tailwind.conf[...]`)
+3. **Sintaxis simplificada de importación y soporte nativo de CSS moderno:** Se reemplazaron las tres directivas tradicionales (`@tailwind base; @tailwind components; @tailwind utilities;`) por una �[...]
 
 ### 1.5 Métodos de instalación y consideraciones de producción
 Tailwind CSS ofrece tres modalidades de integración:
-1. **Play CDN (`@tailwindcss/browser@4`):** Permite ejecutar el compilador JIT directamente en el hilo de ejecución del navegador mediante una etiqueta `<script>`. Es la opción ideal para prototipado rápido, entornos educativos y pruebas inmediatas.
+1. **Play CDN (`@tailwindcss/browser@4`):** Permite ejecutar el compilador JIT directamente en el hilo de ejecución del navegador mediante una etiqueta `<script>`. Es la opción ideal para prototipad[...]
 2. **Tailwind CLI:** Binario ejecutable autónomo que compila los archivos estáticos desde la terminal sin necesidad de instalar entornos de ejecución complejos como Node.js.
 3. **Empaquetadores modernos (Vite, Next.js, Astro):** Integración mediante plugins oficiales de compilación continua con recarga en caliente (*Hot Module Replacement - HMR*).
 
 > **¿Por qué el Play CDN no se recomienda en entornos de producción profesional?**  
-> El Play CDN descarga el motor de compilación completo al navegador del cliente. Esto implica que el dispositivo del usuario debe descargar librerías JavaScript adicionales, escanear todo el árbol del DOM en tiempo de ejecución y generar los estilos sobre la marcha. Esto introduce un retraso perceptual conocido como **FOUT / FOUC** (*Flash of Unstyled Content*), incrementa el consumo de batería y penaliza drásticamente las métricas de rendimiento web de Google (Core Web Vitals como *Largest Contentful Paint - LCP*). En producción siempre se debe servir un archivo `.css` estático previamente minificado.
+> El Play CDN descarga el motor de compilación completo al navegador del cliente. Esto implica que el dispositivo del usuario debe descargar librerías JavaScript adicionales, escanear todo el árbol[...]
 
 ---
 
 ## 3. Eje 2: Conceptos Clave y Clases Esenciales
 
 ### 3.1 Sistema de dimensionamiento y espaciado
-Tailwind utiliza una escala geométrica proporcional basada en cuartos de rem (`0.25rem = 4px` bajo la convención estándar del navegador donde `1rem = 16px`). Esto garantiza un ritmo vertical uniforme y coherente en toda la interfaz:
+Tailwind utiliza una escala geométrica proporcional basada en cuartos de rem (`0.25rem = 4px` bajo la convención estándar del navegador donde `1rem = 16px`). Esto garantiza un ritmo vertical unifor[...]
 
 * **Equivalencia de `p-4`:**  
   La clase utilitaria `p-4` aplica un relleno (*padding*) de `1rem`, lo que equivale exactamente a **16 píxeles** en los cuatro lados del elemento (`padding: 1rem; /* 16px */`).
@@ -165,8 +165,8 @@ Tailwind utiliza una escala geométrica proporcional basada en cuartos de rem (`
   - `w-full` (`width: 100%`), `h-screen` (`height: 100vh`).
 
 ### 3.2 Colorimetría y escala tipográfica
-* **Escala de tonos (50 a 950):** Tailwind organiza sus familias de colores en una gama numérica de 11 peldaños: desde los tonos más tenues y claros (`50` y `100`, ideales para fondos sutiles) pasando por los tonos medios (`500` y `600`, destinados a botones e iconos principales) hasta los tonos más profundos (`900` y `950`, utilizados en tipografías oscuras o fondos de modo nocturno).
-* **Escala tipográfica:** Define tamaños calculados para mantener proporciones áureas: `text-xs` (12px), `text-sm` (14px), `text-base` (16px), `text-lg` (18px), `text-xl` (20px), hasta `text-6xl` (60px) y `text-7xl` (72px) para titulares de gran impacto en cabeceras.
+* **Escala de tonos (50 a 950):** Tailwind organiza sus familias de colores en una gama numérica de 11 peldaños: desde los tonos más tenues y claros (`50` y `100`, ideales para fondos sutiles) pasa[...]
+* **Escala tipográfica:** Define tamaños calculados para mantener proporciones áureas: `text-xs` (12px), `text-sm` (14px), `text-base` (16px), `text-lg` (18px), `text-xl` (20px), hasta `text-6xl` ([...]
 * **Pesos y fuentes:** Controlados mediante `font-light` (300), `font-normal` (400), `font-medium` (500), `font-semibold` (600) y `font-bold` (700).
 
 ### 3.3 Flexbox y CSS Grid: Ejemplos prácticos de maquetación
@@ -179,7 +179,7 @@ Tailwind abstrae las especificaciones de maquetación moderna en utilidades conc
 * `gap-6`: Establece una separación uniforme de 24px tanto en filas como en columnas entre los elementos secundarios.
 
 ### 3.4 Diseño adaptable y filosofía Mobile-First
-Tailwind adopta una filosofía **Mobile-First** (el móvil primero). Esto significa que cualquier clase escrita sin prefijo se aplica por defecto a todas las pantallas, comenzando desde la más pequeña. Los puntos de ruptura (*breakpoints*) actúan como reglas `@media (min-width: ...)` que se activan únicamente cuando el viewport supera dicha medida:
+Tailwind adopta una filosofía **Mobile-First** (el móvil primero). Esto significa que cualquier clase escrita sin prefijo se aplica por defecto a todas las pantallas, comenzando desde la más peque�[...]
 
 | Prefijo | Medida Mínima (Breakpoint) | Dispositivo Típico |
 |---|---|---|
@@ -203,7 +203,7 @@ Los estados dinámicos se gestionan como variantes que anteceden a la clase base
 * `transition-all duration-300 ease-in-out`: Suaviza los cambios entre estados evitando saltos visuales abruptos.
 
 ### 3.6 Modo oscuro (`dark:`) y personalización con `@theme`
-El modo oscuro se activa anteponiendo la variante `dark:` a cualquier propiedad (ejemplo: `bg-sand-50 dark:bg-night-950 text-sand-900 dark:text-white`). En Tailwind 4, la personalización se centraliza en CSS mediante la directiva `@theme`:
+El modo oscuro se activa anteponiendo la variante `dark:` a cualquier propiedad (ejemplo: `bg-sand-50 dark:bg-night-950 text-sand-900 dark:text-white`). En Tailwind 4, la personalización se centraliz[...]
 
 ```css
 <style type="text/tailwindcss">
@@ -227,21 +227,21 @@ El modo oscuro se activa anteponiendo la variante `dark:` a cualquier propiedad 
 
 ### 4.1 Herramientas actuales de IA en frontend
 El desarrollo frontend actual cuenta con asistentes generativos especializados:
-1. **Claude (Anthropic):** Destacado por su alta precisión lógica en JavaScript, su ventana de contexto extendida y su capacidad para generar código refactorizado y modular respetando pautas estrictas de accesibilidad.
+1. **Claude (Anthropic):** Destacado por su alta precisión lógica en JavaScript, su ventana de contexto extendida y su capacidad para generar código refactorizado y modular respetando pautas estric[...]
 2. **ChatGPT / OpenAI o1/GPT-4o:** Herramienta versátil con gran capacidad para proponer arquitecturas iniciales, generar documentación técnica y estructurar esquemas de marcado semántico.
 3. **GitHub Copilot:** Asistente embebido directamente en el entorno de desarrollo integrado (IDE) que autocompleta código en tiempo real reconociendo el contexto de archivos adyacentes.
-4. **v0 (Vercel):** Modelo generativo enfocado exclusivamente en interfaces de usuario que transforma bocetos y prompts de lenguaje natural en componentes completos maquetados con Tailwind CSS y React.
+4. **v0 (Vercel):** Modelo generativo enfocado exclusivamente en interfaces de usuario que transforma bocetos y prompts de lenguaje natural en componentes completos maquetados con Tailwind CSS y React[...]
 
 ### 4.2 Mecanismo generativo de los LLMs y causas de error en frontend
-Los Modelos de Lenguaje Grande (LLMs) operan mediante redes neuronales con arquitectura de transformador (*Transformer*). Su funcionamiento básico consiste en predecir el siguiente fragmento de texto o código (*token*) más probable estadísticamente, de acuerdo con el contexto suministrado en el prompt y los billones de líneas de código observadas durante su fase de entrenamiento.
+Los Modelos de Lenguaje Grande (LLMs) operan mediante redes neuronales con arquitectura de transformador (*Transformer*). Su funcionamiento básico consiste en predecir el siguiente fragmento de texto[...]
 
 Los LLMs no "entienden" el código en el sentido cognitivo ni ejecutan un navegador para visualizar el resultado. Esto propicia tres tipos de errores frecuentes:
-1. **Alucinación de clases inexistentes:** La IA suele inventar utilidades por analogía sintáctica (por ejemplo, escribir `text-justify-center` en lugar de combinar `text-center` y propiedades de párrafo).
-2. **Anacronismos y colisión de versiones:** Al haber sido entrenadas con abundante material de Tailwind v2 y v3, las IAs tienden a generar sintaxis obsoleta (como `tailwind.config.js` o directivas `@apply` depreciadas) cuando se les solicita código para Tailwind v4.
-3. **Fallas en la lógica de estados en JavaScript:** Con frecuencia producen bucles de renderizado, selectores del DOM nulos o no gestionan adecuadamente los eventos de cierre de componentes flotantes (modales o menús móviles).
+1. **Alucinación de clases inexistentes:** La IA suele inventar utilidades por analogía sintáctica (por ejemplo, escribir `text-justify-center` en lugar de combinar `text-center` y propiedades de p[...]
+2. **Anacronismos y colisión de versiones:** Al haber sido entrenadas con abundante material de Tailwind v2 y v3, las IAs tienden a generar sintaxis obsoleta (como `tailwind.config.js` o directivas [...])
+3. **Fallas en la lógica de estados en JavaScript:** Con frecuencia producen bucles de renderizado, selectores del DOM nulos o no gestionan adecuadamente los eventos de cierre de componentes flotante[...]
 
 ### 4.3 Riesgos del código generado sin supervisión crítica
-* **Barreras de Accesibilidad (A11y):** La IA tiende a priorizar la estética inmediata sobre la inclusión, omitiendo atributos ARIA, navegación por teclado (`tabindex`), etiquetas `<label>` vinculadas a inputs y contrastes cromáticos suficientes.
+* **Barreras de Accesibilidad (A11y):** La IA tiende a priorizar la estética inmediata sobre la inclusión, omitiendo atributos ARIA, navegación por teclado (`tabindex`), etiquetas `<label>` vinculada[...]
 * **Vulnerabilidades de Seguridad:** Riesgos de inyección de código malicioso (*Cross-Site Scripting - XSS*) al manipular el DOM con `innerHTML` sin sanear las entradas del usuario.
 * **Incertidumbre en Derechos de Autor y Licencias:** Posible ingestión de fragmentos de código protegidos por licencias restrictivas no compatibles con el proyecto.
 * **Dependencia y Deuda Técnica:** Desarrolladores que copian soluciones que no comprenden quedan incapacitados para depurar errores en producción, generando vulnerabilidad operativa en los equipos.
@@ -256,23 +256,23 @@ Para obtener resultados de calidad profesional en el desarrollo frontend asistid
 
 ### 4.5 Postura Crítica Personal: ¿Cuándo ayuda la IA y cuándo impide el aprendizaje?
 
-> *La inteligencia artificial generativa actúa como un acelerador de productividad formidable cuando se utiliza como una herramienta de andamiaje cognitivo, consulta y asistencia técnica. Resulta extraordinariamente útil para automatizar tareas repetitivas —como estructurar tablas de datos, generar datos de prueba creíbles (*mock data*), explorar variantes de diseño visual y encontrar errores de sintaxis esquivos en el código. En este escenario, la IA potencia el aprendizaje porque el estudiante actúa como un revisor crítico que comprende cada instrucción, formula preguntas inquisitivas sobre las decisiones técnicas tomadas y valida experimentalmente el comportamiento en el navegador.*
+> *La inteligencia artificial generativa actúa como un acelerador de productividad formidable cuando se utiliza como una herramienta de andamiaje cognitivo, consulta y asistencia técnica. Resulta ex[...]
 > 
-> *Por el contrario, la IA se convierte en un obstáculo pernicioso para el aprendizaje cuando se adopta desde la pasividad y el "copiar y pegar" irreflexivo. Si un estudiante delega la totalidad de la resolución del problema en el modelo sin comprender las estructuras fundamentales —tales como el flujo de eventos en JavaScript, el modelo de caja en CSS o las reglas de especificidad—, se genera una ilusión de competencia vacía. Ante el primer error imprevisto en producción o durante una sustentación técnica presencial, el desarrollador queda desarmado. En conclusión: la IA debe ser un copiloto que ejecute órdenes precisas de un piloto humano que domina los instrumentos de vuelo, jamás el capitán que toma el mando sin supervisión.*
+> *Por el contrario, la IA se convierte en un obstáculo pernicioso para el aprendizaje cuando se adopta desde la pasividad y el "copiar y pegar" irreflexivo. Si un estudiante delega la totalidad de l[...]
 
 ---
 
 ## 5. Eje 4: Tailwind y los Principios de UX/UI
 
 ### 5.1 Consistencia visual mediante Tokens de Diseño
-En el diseño de interfaces modernas, un **Token de Diseño** es la unidad atómica indivisible que almacena una decisión de diseño (un valor específico de color, un espaciado, una escala tipográfica o un radio de curvatura). Tailwind CSS actúa como un puente directo entre el diseño y la ingeniería, ya que codifica estos tokens en clases de utilidad estandarizadas. De este modo, se elimina la anarquía de colores arbitrarios o márgenes dispares (como mezclar `13px`, `15px` y `18px`), forzando al equipo a mantener un ritmo visual armónico en todas las vistas de la aplicación.
+En el diseño de interfaces modernas, un **Token de Diseño** es la unidad atómica indivisible que almacena una decisión de diseño (un valor específico de color, un espaciado, una escala tipográf[...]
 
 ### 5.2 La regla 60-30-10 y colores semánticos aplicados en `@theme`
 La regla **60-30-10** es un principio clásico del diseño visual para lograr balance armónico:
-* **60% Color Dominante:** Proporciona la atmósfera base del sitio. En *Tatacoa Starlight Expeditions*, corresponde al tono arena desértico claro (`#FAF7F2`) para el modo diurno y pizarra estelar profunda (`#060913`) para el modo nocturno.
+* **60% Color Dominante:** Proporciona la atmósfera base del sitio. En *Tatacoa Starlight Expeditions*, corresponde al tono arena desértico claro (`#FAF7F2`) para el modo diurno y pizarra estelar pr[...]
 * **30% Color Secundario:** Aporta soporte y contraste a la estructura. Se utilizó el terracota y ocre de las formaciones arcillosas de El Cuzco (`#C85A32`).
-* **10% Color de Acento:** Reservado exclusivamente para dirigir el ojo del usuario hacia los puntos de interacción crítica (botones CTA de reserva, badges e insignias clave), materializado en el ámbar cósmico estelar (`#E5A93C`).
-* **Colores Semánticos:** Comunican estado del sistema sin ambigüedad: Verde (`#16A34A`) para confirmaciones exitosas (Toast), Rojo (`#DC2626`) para campos inválidos y Ámbar (`#D97706`) para avisos preventivos.
+* **10% Color de Acento:** Reservado exclusivamente para dirigir el ojo del usuario hacia los puntos de interacción crítica (botones CTA de reserva, badges e insignias clave), materializado en el á[...]
+* **Colores Semánticos:** Comunican estado del sistema sin ambigüedad: Verde (`#16A34A`) para confirmaciones exitosas (Toast), Rojo (`#DC2626`) para campos inválidos y Ámbar (`#D97706`) para avisos[...]
 
 ### 5.3 Jerarquía tipográfica con clases de Tailwind
 La jerarquía tipográfica guía al usuario a través del contenido según su importancia relativa:
@@ -283,16 +283,16 @@ La jerarquía tipográfica guía al usuario a través del contenido según su im
 * **Caption / Metadatos (Textos de apoyo):** `font-sans text-xs font-semibold uppercase tracking-wider text-sand-500`
 
 ### 5.4 Construcción de componentes estándar de interfaz
-1. **Navbar con menú hamburguesa:** Cabecera fija (`fixed top-0 w-full z-40 backdrop-blur-md`) que en pantallas inferiores a `md` (768px) oculta la lista y muestra un botón conmutador accesible con atributos `aria-expanded` y transiciones suaves.
-2. **Tarjetas de producto/servicio:** Contenedores modulares con bordes redondeados (`rounded-2xl`), imágenes de fondo con zoom sutil al pasar el cursor (`group-hover:scale-110 duration-500`) y distribución interna con Flexbox para alinear el precio y los botones al pie.
-3. **Formulario accesible:** Campos con etiquetas obligatorias visibles (`<label>`), estados de foco con contraste visible (`focus:ring-2 focus:ring-amber-accent`) y contenedores de error dedicados que no desplazan la maquetación.
+1. **Navbar con menú hamburguesa:** Cabecera fija (`fixed top-0 w-full z-40 backdrop-blur-md`) que en pantallas inferiores a `md` (768px) oculta la lista y muestra un botón conmutador accesible con [...]
+2. **Tarjetas de producto/servicio:** Contenedores modulares con bordes redondeados (`rounded-2xl`), imágenes de fondo con zoom sutil al pasar el cursor (`group-hover:scale-110 duration-500`) y distr[...]
+3. **Formulario accesible:** Campos con etiquetas obligatorias visibles (`<label>`), estados de foco con contraste visible (`focus:ring-2 focus:ring-amber-accent`) y contenedores de error dedicados qu[...]
 4. **Modal emergente:** Diálogo centrado con capa de fondo oscurecida (`bg-night-950/80 backdrop-blur-sm`), captura de tecla Escape y bloqueo temporal del scroll en `document.body`.
-5. **Toast accesible:** Notificación flotante con anclaje inferior derecho (`fixed bottom-6 right-6`), semántica viva para lectores de pantalla (`role="status" aria-live="polite"`) y temporizador de salida automático.
+5. **Toast accesible:** Notificación flotante con anclaje inferior derecho (`fixed bottom-6 right-6`), semántica viva para lectores de pantalla (`role="status" aria-live="polite"`) y temporizador de[...]
 
 ### 5.5 Criterios de accesibilidad web (WCAG 2.1 Nivel AA)
-* **Contraste mínimo:** Se verificó que todas las combinaciones de texto y fondo cumplan una relación mínima de contraste de **4.5:1** para texto normal y **3:1** para titulares grandes mediante *WebAIM Contrast Checker*.
+* **Contraste mínimo:** Se verificó que todas las combinaciones de texto y fondo cumplan una relación mínima de contraste de **4.5:1** para texto normal y **3:1** para titulares grandes mediante *[...]
 * **Textos alternativos (`alt`):** Todas las imágenes del sitio incorporan descripciones contextuales concretas sobre los paisajes del desierto, evitando atributos vacíos o redundantes.
-* **Indicador de foco visible:** Implementación de la directiva universal `*:focus-visible` con anillo ámbar contrastante de 2px y separación de 3px, garantizando la navegabilidad para usuarios que utilizan teclado o tecnologías asistivas.
+* **Indicador de foco visible:** Implementación de la directiva universal `*:focus-visible` con anillo ámbar contrastante de 2px y separación de 3px, garantizando la navegabilidad para usuarios que[...]
 
 ---
 
@@ -302,22 +302,22 @@ La jerarquía tipográfica guía al usuario a través del contenido según su im
 
 | Criterio | CSS Tradicional | Bootstrap | Tailwind CSS |
 |---|---|---|---|
-| **Enfoque** | Semántico / Basado en hojas de estilo globales e identificadores BEM | Basado en componentes visuales prediseñados (`.btn`, `.card`, `.modal`) | Basado en utilidades atómicas (*Utility-First*) en el propio marcado |
-| **Curva de Aprendizaje** | Baja en conceptos básicos, muy alta para arquitecturas grandes sin deuda técnica | Muy baja; componentes listos para usar con solo copiar código | Moderada; exige conocer CSS a fondo para deducir las clases utilitarias |
-| **Personalización del Diseño** | Total y absoluta, pero a costa de alta inversión de tiempo y disciplina | Rígida; los sitios suelen verse genéricos a menos que se sobreescriba Sass | Extremadamente alta y flexible; no impone ningún sesgo estético preconcebido |
-| **Tamaño del CSS Final** | Tiende a crecer continuamente con cada nueva sección añadida al proyecto | Fijo y relativamente pesado (~150-250 KB sin depurar dependencias) | Mínimo y óptimo (~10-25 KB); el motor solo genera las utilidades utilizadas |
-| **Velocidad de Desarrollo** | Lenta; requiere constante alternancia entre archivos HTML y CSS | Muy rápida para prototipos básicos estándar | Extremadamente rápida una vez dominadas las utilidades |
-| **Facilidad para Trabajar con IA** | Media; los LLMs suelen equivocarse en selectores complejos en cascada | Alta; la IA conoce de memoria las clases estáticas de Bootstrap | Excepcional; la composición de clases en línea facilita la generación atómica |
-| **¿Cuándo lo usaría?** | Proyectos muy pequeños, sitios institucionales estáticos simples o fines pedagógicos | Paneles administrativos internos (Dashboards) y MVPs donde el diseño no sea el factor diferenciador | Aplicaciones web profesionales, landings de marca única, sistemas de diseño escalables y proyectos modernos |
+| **Enfoque** | Semántico / Basado en hojas de estilo globales e identificadores BEM | Basado en componentes visuales prediseñados (`.btn`, `.card`, `.modal`) | Basado en utilidades atómicas (*Util[...]
+| **Curva de Aprendizaje** | Baja en conceptos básicos, muy alta para arquitecturas grandes sin deuda técnica | Muy baja; componentes listos para usar con solo copiar código | Moderada; exige conoc[...]
+| **Personalización del Diseño** | Total y absoluta, pero a costa de alta inversión de tiempo y disciplina | Rígida; los sitios suelen verse genéricos a menos que se sobreescriba Sass | Extremada[...]
+| **Tamaño del CSS Final** | Tiende a crecer continuamente con cada nueva sección añadida al proyecto | Fijo y relativamente pesado (~150-250 KB sin depurar dependencias) | Mínimo y óptimo (~10-2[...]
+| **Velocidad de Desarrollo** | Lenta; requiere constante alternancia entre archivos HTML y CSS | Muy rápida para prototipos básicos estándar | Extremadamente rápida una vez dominadas las utilidad[...]
+| **Facilidad para Trabajar con IA** | Media; los LLMs suelen equivocarse en selectores complejos en cascada | Alta; la IA conoce de memoria las clases estáticas de Bootstrap | Excepcional; la compos[...]
+| **¿Cuándo lo usaría?** | Proyectos muy pequeños, sitios institucionales estáticos simples o fines pedagógicos | Paneles administrativos internos (Dashboards) y MVPs donde el diseño no sea el [...]
 
 ### 6.2 Comentarios y Discusión del Análisis
-El análisis evidencia que ningún enfoque es universalmente superior, sino que cada uno atiende a necesidades de ingeniería diferenciadas. Mientras que **Bootstrap** sigue siendo imbatible para desarrollar un panel de administración en pocas horas sin diseñadores en el equipo, **Tailwind CSS** representa el estándar moderno para productos comerciales que exigen una identidad de marca personalizada sin penalizaciones de rendimiento. A su vez, Tailwind ha demostrado ser el framework más afín a la era de la inteligencia artificial, dado que los modelos de lenguaje pueden generar interfaces ricas sin necesidad de coordinar hojas de estilo separadas.
+El análisis evidencia que ningún enfoque es universalmente superior, sino que cada uno atiende a necesidades de ingeniería diferenciadas. Mientras que **Bootstrap** sigue siendo imbatible para desa[...]
 
 ---
 
 ## 7. Glosario Técnico de Términos
 
-1. **Utility-First:** Paradigma de desarrollo frontend que prioriza la construcción de interfaces mediante la composición de clases utilitarias atómicas de propósito único en lugar de componentes CSS semánticos.
+1. **Utility-First:** Paradigma de desarrollo frontend que prioriza la construcción de interfaces mediante la composición de clases utilitarias atómicas de propósito único en lugar de compo[...]
 2. **Breakpoint:** Punto de quiebre específico de resolución de pantalla (definido en píxeles) a partir del cual se aplican reglas de diseño adaptativo mediante Media Queries.
 3. **Mobile-First:** Metodología de diseño y maquetación que concibe y programa la experiencia para pantallas móviles primero, expandiendo la interfaz progresivamente hacia pantallas mayores.
 4. **Design Token:** Valor nominal centralizado que define una propiedad visual inmutable (color, tipografía, espacio, radio) dentro de un sistema de diseño.
@@ -325,7 +325,7 @@ El análisis evidencia que ningún enfoque es universalmente superior, sino que 
 6. **Responsive Web Design:** Filosofía de desarrollo que asegura que una aplicación web ajuste su maquetación de manera fluida a cualquier tamaño de pantalla y dispositivo.
 7. **JIT (Just-In-Time) Compiler:** Mecanismo de compilación que analiza el código fuente en tiempo real y genera exclusivamente los estilos utilizados bajo demanda.
 8. **Motor Oxide:** Nuevo motor de compilación central de Tailwind CSS v4, programado en lenguaje Rust para proporcionar rendimiento ultrarrápido sin dependencias de Node.js.
-9. **WCAG (Web Content Accessibility Guidelines):** Conjunto de directivas técnicas internacionales orientadas a garantizar que la web sea perceptible, operable, comprensible y robusta para personas con discapacidad.
+9. **WCAG (Web Content Accessibility Guidelines):** Conjunto de directivas técnicas internacionales orientadas a garantizar que la web sea perceptible, operable, comprensible y robusta para persona[...]
 10. **A11y:** Numerónimo internacional utilizado en la industria para referirse a la palabra *Accessibility* (Accesibilidad web), resumiendo las 11 letras entre la 'A' y la 'y'.
 11. **CSS Bloat:** Fenómeno negativo de acumulación excesiva de reglas CSS huérfanas o redundantes en un proyecto, degradando el rendimiento de carga y mantenimiento.
 12. **Focus Ring:** Indicador visual (contorno o anillo perimetral) que resalta el elemento interactivo activo cuando un usuario navega utilizando el teclado.
@@ -383,13 +383,13 @@ El análisis evidencia que ningún enfoque es universalmente superior, sino que 
 
 ## 9. Conclusiones Personales
 
-El desarrollo integral de esta investigación y su correspondiente aplicación práctica en el proyecto *"Tatacoa Starlight Expeditions"* permitió consolidar aprendizajes técnicos de primer orden para mi perfil como futuro ingeniero de software.
+El desarrollo integral de esta investigación y su correspondiente aplicación práctica en el proyecto *"Tatacoa Starlight Expeditions"* permitió consolidar aprendizajes técnicos de primer orden pa[...]
 
-En primer lugar, **Tailwind CSS demostró ser una solución madura que rompe definitivamente con los vicios del CSS tradicional**. La preocupación inicial de que "las clases ensucian el HTML" se disipa rápidamente al experimentar los beneficios de la inmutabilidad y la velocidad de iteración: no tener que abandonar el archivo de maquetación para afinar márgenes o contrastes, sumado a la tranquilidad de que una modificación local jamás causará una regresión visual en otras páginas, representa un salto cualitativo en mantenibilidad. Asimismo, la transición a **Tailwind 4** y su nueva directiva `@theme` evidencia una tendencia saludable de la industria hacia la adopción de estándares web nativos (*CSS Custom Properties*), prescindiendo de complejas cadenas de dependencias en JavaScript.
+En primer lugar, **Tailwind CSS demostró ser una solución madura que rompe definitivamente con los vicios del CSS tradicional**. La preocupación inicial de que "las clases ensucian el HTML" se disi[...]
 
-En segundo lugar, **la experiencia práctica con Inteligencia Artificial transformó mi visión sobre el rol del programador**. Lejos de constituir un reemplazo del juicio humano, los modelos de lenguaje actúan como amplificadores de destreza técnica que exigen un desarrollador mucho más capacitado y vigilante. Los errores experimentados durante la práctica —tales como la generación de clases descontinuadas de versiones anteriores de Tailwind, la omisión de atributos ARIA y la falta de persistencia en el estado del tema— demostraron que la IA no programa por sí misma: la IA responde a la rigurosidad con la que se le instruye y exige un criterio riguroso de revisión de código (*code review*). El verdadero valor del ingeniero no radica en recordar si el relleno se escribe con una u otra clase, sino en diseñar la arquitectura modular, velar por la accesibilidad universal de las personas y garantizar la estabilidad del software.
+En segundo lugar, **la experiencia práctica con Inteligencia Artificial transformó mi visión sobre el rol del programador**. Lejos de constituir un reemplazo del juicio humano, los modelos de lengu[...]
 
-Finalmente, vincular la práctica a una temática de alto valor patrimonial y ecológico como el **Desierto de la Tatacoa en el departamento del Huila** permitió entender que el desarrollo web no es un ejercicio abstracto de sintaxis, sino una herramienta de comunicación y desarrollo económico regional. Diseñar pensando en contrastes lumínicos para simular la bóveda celeste y respetar pautas de accesibilidad para que cualquier turista pueda reservar una expedición reafirma la responsabilidad social de la ingeniería web moderna.
+Finalmente, vincular la práctica a una temática de alto valor patrimonial y ecológico como el **Desierto de la Tatacoa en el departamento del Huila** permitió entender que el desarrollo web no es [...]
 
 ---
 
@@ -402,13 +402,13 @@ Finalmente, vincular la práctica a una temática de alto valor patrimonial y ec
 5. Tailwind Labs. (2024). *Tailwind CSS documentation: Upgrading from v3 to v4 and the Oxide engine*. Tailwind Labs Inc. Recuperado de https://tailwindcss.com/docs
 6. Tailwind Labs. (2024). *Utility-first fundamentals and responsive design*. Tailwind Labs Inc. Recuperado de https://tailwindcss.com/docs/utility-first
 7. W3C. (2023). *Web Content Accessibility Guidelines (WCAG) 2.1: W3C Recommendation*. World Wide Web Consortium. Recuperado de https://www.w3.org/TR/WCAG21/
-8. WebAIM. (2024). *Color contrast checker and WCAG 2.1 compliance metrics*. Institute for Disability Research, Policy, and Practice at Utah State University. Recuperado de https://webaim.org/resources/contrastchecker/
+8. WebAIM. (2024). *Color contrast checker and WCAG 2.1 compliance metrics*. Institute for Disability Research, Policy, and Practice at Utah State University. Recuperado de https://webaim.org/res[...]
 
 ---
 
 ## 11. Declaración Ética sobre el Uso de Inteligencia Artificial
 
-En cumplimiento de las normas éticas y académicas estipuladas por la Fundación Escuela Tecnológica de Neiva (FET), se declara que para la elaboración del presente trabajo se utilizó como asistente técnico el modelo de lenguaje **Gemini (Google DeepMind)**.
+En cumplimiento de las normas éticas y académicas estipuladas por la Fundación Escuela Tecnológica de Neiva (FET), se declara que para la elaboración del presente trabajo se utilizó como asisten[...]
 
-* **Fines de uso de la herramienta:** La IA se empleó exclusivamente como interlocutora para la estructuración conceptual del Prompt Maestro, la lluvia de ideas en torno a las variables temáticas de la Tatacoa, la generación del esqueleto base del proyecto y la asistencia en la detección de sintaxis obsoleta entre versiones de Tailwind.
-* **Verificación y autoría:** Toda la información técnica, explicaciones conceptuales, comparaciones analíticas y códigos fuente fueron leídos, analizados, depurados y validados manualmente mediante las fuentes primarias de documentación oficial de Tailwind Labs y MDN Web Docs. Ningún texto fue copiado de manera ciega ni incorporado sin comprensión humana deliberada.
+* **Fines de uso de la herramienta:** La IA se empleó exclusivamente como interlocutora para la estructuración conceptual del Prompt Maestro, la lluvia de ideas en torno a las variables temáticas d[...]
+* **Verificación y autoría:** Toda la información técnica, explicaciones conceptuales, comparaciones analíticas y códigos fuente fueron leídos, analizados, depurados y validados manualmente med[...]
