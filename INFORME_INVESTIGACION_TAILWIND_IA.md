@@ -8,7 +8,7 @@
 
 **Asignatura:** Desarrollo Web Frontend / Ingeniería Web  
 **Estudiante:** Juan David Quimbayo Serrato  
-**Docente:** Ing. [Nombre del Docente]  
+**Docente:** Ing. Camilo Morales Vargas  
 **Institución:** Fundación Escuela Tecnológica de Neiva "Jesús Oviedo Pérez" (FET)  
 **Fecha:** Noviembre de 2026  
 **Neiva, Huila, Colombia**
