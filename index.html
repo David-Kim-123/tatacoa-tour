@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tatacoa Starlight Expeditions | Ecoturismo y Astronomía en el Huila</title>
+  <meta name="description" content="Agencia oficial de turismo en el Desierto de la Tatacoa, Villavieja, Huila. Senderismo en El Cuzco, Los Hoyos y observación astronómica con telescopios.">
+
+  <!-- Google Fonts: Space Grotesk (Títulos) e Inter (Cuerpo de texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos complementarios y utilidades personalizadas -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Tailwind CSS v4 Play CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Definición del tema propio con la directiva @theme (Regla 60-30-10 y Colores Semánticos) -->
+  <style type="text/tailwindcss">
+    @theme {
+      /* 60% Dominante (Fondos de atmósfera desértica y nocturna) */
+      --color-sand-50: #faf7f2;
+      --color-sand-100: #f4eee2;
+      --color-sand-200: #e8dbc3;
+      --color-sand-300: #d8c29d;
+      --color-sand-700: #6b553e;
+      --color-sand-800: #4a3e2e;
+      --color-sand-900: #2b241b;
+
+      /* Modo Oscuro: Pizarra estelar profunda */
+      --color-night-800: #162032;
+      --color-night-900: #0d1526;
+      --color-night-950: #060913;
+
+      /* 30% Secundario: Ocre y Terracota del Cuzco */
+      --color-terracotta-500: #c85a32;
+      --color-terracotta-600: #b04924;
+      --color-terracotta-700: #8e371a;
+
+      /* 10% Acento: Ámbar estelar cósmico para CTAs y destaques */
+      --color-amber-accent: #e5a93c;
+      --color-amber-hover: #d49526;
+      --color-amber-light: #fef3c7;
+
+      /* Colores Semánticos */
+      --color-success: #16a34a;
+      --color-danger: #dc2626;
+      --color-warning: #d97706;
+
+      /* Tipografías */
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-sand-50 text-sand-900 dark:bg-night-950 dark:text-sand-100 font-sans transition-colors duration-300 antialiased selection:bg-amber-accent selection:text-night-950">
+
+  <!-- ==========================================================================
+       1. ENCABEZADO Y BARRA DE NAVEGACIÓN (NAVBAR FIJA Y RESPONSIVE)
+       ========================================================================== -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-sand-50/95 dark:bg-night-950/95 backdrop-blur-md border-b border-sand-200 dark:border-night-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo con Ícono Astronómico y Desértico -->
+        <a href="#inicio" class="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-accent rounded-lg p-1" aria-label="Inicio de Tatacoa Starlight Expeditions">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-terracotta-600 to-amber-accent flex items-center justify-center text-night-950 shadow-md group-hover:scale-105 transition-transform">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2L14.39 8.26L21 9.27L16.5 14.14L17.77 21L12 17.77L6.23 21L7.5 14.14L3 9.27L9.61 8.26L12 2Z" />
+            </svg>
+          </div>
+          <div>
+            <span class="block font-display font-bold text-xl tracking-tight text-terracotta-700 dark:text-amber-accent">TATACOA</span>
+            <span class="block text-xs font-medium tracking-widest uppercase text-sand-700 dark:text-sand-300 -mt-1">Starlight Expeditions</span>
+          </div>
+        </a>
+
+        <!-- Enlaces en Pantalla Grande (Desktop) -->
+        <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
+          <a href="#inicio" class="text-sm font-medium hover:text-terracotta-600 dark:hover:text-amber-accent transition-colors">Inicio</a>
+          <a href="#nosotros" class="text-sm font-medium hover:text-terracotta-600 dark:hover:text-amber-accent transition-colors">El Desierto</a>
+          <a href="#tours" class="text-sm font-medium hover:text-terracotta-600 dark:hover:text-amber-accent transition-colors">Tours y Rutas</a>
+          <a href="#faq" class="text-sm font-medium hover:text-terracotta-600 dark:hover:text-amber-accent transition-colors">Preguntas</a>
+          <a href="#contacto" class="text-sm font-medium hover:text-terracotta-600 dark:hover:text-amber-accent transition-colors">Reservar</a>
+        </nav>
+
+        <!-- Acciones: Conmutador Modo Oscuro y Botón CTA -->
+        <div class="flex items-center gap-3">
+          <!-- Botón de Modo Oscuro -->
+          <button id="theme-toggle" class="p-2.5 rounded-full text-sand-700 dark:text-sand-200 hover:bg-sand-200 dark:hover:bg-night-800 transition-colors focus-visible:ring-2 focus-visible:ring-amber-accent" aria-label="Cambiar entre modo claro y oscuro">
+            <!-- Ícono Sol (para cuando está en oscuro) -->
+            <svg class="icon-sun w-5 h-5 hidden text-amber-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            <!-- Ícono Luna (para cuando está en claro) -->
+            <svg class="icon-moon w-5 h-5 text-night-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+          </button>
+
+          <!-- Botón CTA en Navbar (Desktop) -->
+          <a href="#contacto" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold bg-terracotta-600 hover:bg-terracotta-700 text-white shadow-sm hover:shadow-md transition-all focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-terracotta-600">
+            Reservar Cupo
+          </a>
+
+          <!-- Botón Menú Hamburguesa (Mobile) -->
+          <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-lg text-sand-800 dark:text-sand-100 hover:bg-sand-200 dark:hover:bg-night-800 transition-colors focus-visible:ring-2 focus-visible:ring-amber-accent" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú de navegación">
+            <!-- Ícono Hamburguesa -->
+            <svg class="icon-burger w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!-- Ícono Cerrar (X) -->
+            <svg class="icon-close w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Menú Desplegable en Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-sand-200 dark:border-night-800 bg-sand-50 dark:bg-night-950 px-4 pt-3 pb-6 space-y-3">
+      <a href="#inicio" class="nav-link-mobile block py-2 px-3 rounded-lg text-base font-medium hover:bg-sand-200 dark:hover:bg-night-800 transition-colors">Inicio</a>
+      <a href="#nosotros" class="nav-link-mobile block py-2 px-3 rounded-lg text-base font-medium hover:bg-sand-200 dark:hover:bg-night-800 transition-colors">El Desierto</a>
+      <a href="#tours" class="nav-link-mobile block py-2 px-3 rounded-lg text-base font-medium hover:bg-sand-200 dark:hover:bg-night-800 transition-colors">Tours y Rutas</a>
+      <a href="#faq" class="nav-link-mobile block py-2 px-3 rounded-lg text-base font-medium hover:bg-sand-200 dark:hover:bg-night-800 transition-colors">Preguntas</a>
+      <a href="#contacto" class="nav-link-mobile block py-2 px-3 rounded-lg text-base font-semibold text-terracotta-600 dark:text-amber-accent">Reservar Expedición</a>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. SECCIÓN HERO (PORTADA PRINCIPAL CON FOTO Y OVERLAY)
+       ========================================================================== -->
+  <section id="inicio" class="relative min-h-[92vh] flex items-center justify-center pt-20 overflow-hidden">
+    <!-- Imagen de Fondo de Alta Calidad con Superposición Gradiente -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2000&q=80" 
+           alt="Cielo estrellado y cañón rocoso iluminado de noche en el desierto" 
+           class="w-full h-full object-cover object-center transform scale-105 duration-1000 ease-out">
+      <!-- Capa de oscurecimiento para asegurar contraste 4.5:1 en textos -->
+      <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/80 to-night-950/50"></div>
+    </div>
+
+    <!-- Contenido Textual del Hero -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-16 sm:py-24">
+      
+      <!-- Badge de Destino Certificado Starlight -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-accent/20 border border-amber-accent/40 text-amber-accent text-xs sm:text-sm font-semibold tracking-wide uppercase mb-6 animate-fade-in">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <span>Villavieja, Huila • Destino Starlight Internacional</span>
+      </div>
+
+      <!-- Título de Gran Jerarquía (H1) -->
+      <h1 class="font-display font-bold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-tight mb-6">
+        Donde la Tierra Roja <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-accent via-orange-400 to-terracotta-500">Abraza las Estrellas</span>
+      </h1>
+
+      <!-- Párrafo Subtítulo -->
+      <p class="max-w-3xl mx-auto text-lg sm:text-xl text-sand-200 font-normal leading-relaxed mb-10">
+        Descubre el misterio del segundo bosque seco tropical más fascinante de Colombia. Camina entre cañones milenarios y contempla galaxias infinitas a través de telescopios astronómicos de alta potencia.
+      </p>
+
+      <!-- Botones de Acción (CTAs) -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+        <a href="#tours" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-bold bg-amber-accent text-night-950 hover:bg-amber-hover hover:scale-105 transition-all shadow-lg hover:shadow-amber-accent/25 focus-visible:ring-2 focus-visible:ring-amber-accent">
+          Explorar Tours y Rutas
+        </a>
+        <a href="#contacto" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-bold bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 hover:scale-105 transition-all focus-visible:ring-2 focus-visible:ring-white">
+          Reservar Experiencia
+        </a>
+      </div>
+
+      <!-- Métricas / Prueba Social (Stats) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 pt-12 border-t border-white/15 text-center">
+        <div>
+          <span class="block font-display font-bold text-3xl sm:text-4xl text-amber-accent">+8.500</span>
+          <span class="text-xs sm:text-sm text-sand-300">Exploradores Felices</span>
+        </div>
+        <div>
+          <span class="block font-display font-bold text-3xl sm:text-4xl text-amber-accent">330 km²</span>
+          <span class="text-xs sm:text-sm text-sand-300">De Paisaje Mágico</span>
+        </div>
+        <div>
+          <span class="block font-display font-bold text-3xl sm:text-4xl text-amber-accent">88</span>
+          <span class="text-xs sm:text-sm text-sand-300">Constelaciones Visibles</span>
+        </div>
+        <div>
+          <span class="block font-display font-bold text-3xl sm:text-4xl text-amber-accent">100%</span>
+          <span class="text-xs sm:text-sm text-sand-300">Guías Locales Certificados</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. SECCIÓN NOSOTROS / EL MISTERIO DE LA TATACOA (2 COLUMNAS)
+       ========================================================================== -->
+  <section id="nosotros" class="py-20 sm:py-28 bg-sand-100 dark:bg-night-900 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        <!-- Columna Izquierda: Información Textual -->
+        <div>
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-terracotta-600 dark:text-amber-accent mb-3">
+            Ecoturismo Responsable en el Huila
+          </span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-sand-900 dark:text-white leading-tight mb-6">
+            Más que un desierto, un viaje en el tiempo a través de la tierra y el cosmos
+          </h2>
+          <p class="text-sand-700 dark:text-sand-300 text-base sm:text-lg leading-relaxed mb-6">
+            Ubicado a tan solo 38 kilómetros de Neiva, en el municipio histórico de <strong>Villavieja</strong>, el Desierto de la Tatacoa es en realidad un bosque muy seco tropical fósil con más de 13 millones de años de historia geológica y paleontológica.
+          </p>
+          <p class="text-sand-700 dark:text-sand-300 text-base leading-relaxed mb-8">
+            En <strong>Tatacoa Starlight Expeditions</strong> promovemos un turismo sostenible que respeta los ecosistemas desérticos, apoya directamente a las familias campesinas de la región y acerca la ciencia astronómica a cada viajero.
+          </p>
+
+          <!-- Lista de Valores Diferenciales con Íconos -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3 p-4 rounded-xl bg-sand-50 dark:bg-night-800 border border-sand-200 dark:border-night-700">
+              <div class="p-2 rounded-lg bg-terracotta-500/10 text-terracotta-600 dark:text-amber-accent">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm text-sand-900 dark:text-white">Rutas Exclusivas</h3>
+                <p class="text-xs text-sand-600 dark:text-sand-400">Senderos protegidos en Cuzco y Los Hoyos.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-4 rounded-xl bg-sand-50 dark:bg-night-800 border border-sand-200 dark:border-night-700">
+              <div class="p-2 rounded-lg bg-terracotta-500/10 text-terracotta-600 dark:text-amber-accent">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm text-sand-900 dark:text-white">Astronomía Guiada</h3>
+                <p class="text-xs text-sand-600 dark:text-sand-400">Charlas con astrónomos certificados.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Imagen Doble con Efecto Visual -->
+        <div class="relative">
+          <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-night-800">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Laberintos de tierra roja y formaciones geológicas de El Cuzco en el Desierto de la Tatacoa" 
+                 class="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-700">
+          </div>
+          <!-- Tarjeta Flotante con Testimonio / Sello -->
+          <div class="absolute -bottom-6 -left-6 z-20 hidden sm:flex items-center gap-4 bg-sand-50 dark:bg-night-800 p-5 rounded-xl shadow-xl border border-sand-200 dark:border-night-700 max-w-xs">
+            <div class="w-12 h-12 rounded-full bg-amber-accent/20 flex items-center justify-center text-amber-accent font-bold text-xl flex-shrink-0">
+              ★
+            </div>
+            <div>
+              <p class="text-xs font-bold text-sand-900 dark:text-white">Calificación 4.9/5</p>
+              <p class="text-xs text-sand-600 dark:text-sand-400">Reconocidos por viajeros de más de 25 países.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. SECCIÓN TOURS Y EXPERIENCIAS (GRID RESPONSIVE: 1 COL MOB, 2 TAB, 3 PC)
+       ========================================================================== -->
+  <section id="tours" class="py-20 sm:py-28 bg-sand-50 dark:bg-night-950 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Encabezado de Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600 dark:text-amber-accent">
+          Expediciones Disponibles
+        </span>
+        <h2 class="font-display font-bold text-3xl sm:text-5xl text-sand-900 dark:text-white mt-2 mb-4">
+          Nuestras Rutas Guiadas
+        </h2>
+        <p class="text-sand-600 dark:text-sand-400 text-base sm:text-lg">
+          Paquetes diseñados para conectar con la belleza natural, la paleontología y el cielo nocturno del Huila. Precios transparentes en pesos colombianos.
+        </p>
+      </div>
+
+      <!-- Grid de 3 Tarjetas de Tours -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Tarjeta 1: Desierto Rojo (El Cuzco) -->
+        <article class="bg-white dark:bg-night-900 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-sand-200 dark:border-night-800 flex flex-col group"
+                 data-tour-title="Sendero Laberintos del Cuzco (Desierto Rojo)"
+                 data-tour-desc="Caminata interpretativa por los icónicos cañones de tierra rojiza y arcilla de El Cuzco. Aprenderás sobre la fauna fósil, cactus candelabro y la historia geológica."
+                 data-tour-includes="Guía local nativo certificado|Hidratación ecológica|Entrada a zonas protegidas|Seguro de asistencia médica"
+                 data-tour-price="$65.000 COP">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80" 
+                 alt="Cañones y laberintos de arcilla roja en el sector El Cuzco" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-terracotta-600 text-white shadow">
+              Más Popular
+            </span>
+            <span class="absolute bottom-4 right-4 px-3 py-1 rounded-lg text-xs font-semibold bg-night-950/80 text-white backdrop-blur-sm">
+              3 Horas • Fácil
+            </span>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-display font-bold text-xl text-sand-900 dark:text-white group-hover:text-terracotta-600 dark:group-hover:text-amber-accent transition-colors mb-2">
+                Sendero El Cuzco (Desierto Rojo)
+              </h3>
+              <p class="text-sm text-sand-600 dark:text-sand-300 line-clamp-3 mb-4">
+                Recorre laberintos de arcilla roja moldeados por milenios de erosión eólica y fluvial. Perfecto para fotografía al atardecer.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex items-baseline justify-between pt-4 border-t border-sand-200 dark:border-night-800 mb-5">
+                <div>
+                  <span class="text-xs text-sand-500 dark:text-sand-400 block">Tarifa por persona</span>
+                  <span class="font-display font-bold text-2xl text-terracotta-600 dark:text-amber-accent">$65.000 COP</span>
+                </div>
+                <button type="button" class="btn-tour-detail text-xs font-semibold text-sand-700 dark:text-sand-300 underline hover:text-amber-accent" aria-label="Ver detalles del tour El Cuzco">
+                  Ver detalles
+                </button>
+              </div>
+
+              <a href="#contacto" class="w-full inline-flex items-center justify-center py-3 px-4 rounded-xl text-sm font-bold bg-terracotta-600 hover:bg-terracotta-700 text-white transition-all shadow hover:shadow-md focus-visible:ring-2 focus-visible:ring-terracotta-600">
+                Reservar Tour
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tarjeta 2: Safari Astronómico Nocturno -->
+        <article class="bg-white dark:bg-night-900 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-sand-200 dark:border-night-800 flex flex-col group relative"
+                 data-tour-title="Safari Astronómico Estelar con Telescopios"
+                 data-tour-desc="Sesión guiada en el Observatorio Astronómico con telescopios profesionales computarizados. Observa los anillos de Saturno, cúmulos estelares, nebulosas y la Luna en alta resolución."
+                 data-tour-includes="Acceso a telescopios computarizados|Charla con astrofísico invitado|Puntero láser astronómico|Fotografía nocturna con tu celular"
+                 data-tour-price="$90.000 COP">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" 
+                 alt="Vía Láctea brillando sobre la silueta de los telescopios en la noche" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-accent text-night-950 shadow">
+              Experiencia VIP
+            </span>
+            <span class="absolute bottom-4 right-4 px-3 py-1 rounded-lg text-xs font-semibold bg-night-950/80 text-white backdrop-blur-sm">
+              2.5 Horas • Nocturno
+            </span>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-display font-bold text-xl text-sand-900 dark:text-white group-hover:text-amber-accent transition-colors mb-2">
+                Safari Astronómico Estelar
+              </h3>
+              <p class="text-sm text-sand-600 dark:text-sand-300 line-clamp-3 mb-4">
+                La Tatacoa tiene uno de los cielos más despejados del hemisferio. Observa planetas, nebulosas y cúmulos con telescopios profesionales.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex items-baseline justify-between pt-4 border-t border-sand-200 dark:border-night-800 mb-5">
+                <div>
+                  <span class="text-xs text-sand-500 dark:text-sand-400 block">Tarifa por persona</span>
+                  <span class="font-display font-bold text-2xl text-amber-accent">$90.000 COP</span>
+                </div>
+                <button type="button" class="btn-tour-detail text-xs font-semibold text-sand-700 dark:text-sand-300 underline hover:text-amber-accent" aria-label="Ver detalles del Safari Astronómico">
+                  Ver detalles
+                </button>
+              </div>
+
+              <a href="#contacto" class="w-full inline-flex items-center justify-center py-3 px-4 rounded-xl text-sm font-bold bg-amber-accent hover:bg-amber-hover text-night-950 transition-all shadow-md focus-visible:ring-2 focus-visible:ring-amber-accent">
+                Reservar Tour
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tarjeta 3: Expedición Integral (Rojo + Gris + Piscina) -->
+        <article class="bg-white dark:bg-night-900 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-sand-200 dark:border-night-800 flex flex-col group"
+                 data-tour-title="Expedición Integral Tatacoa (Rojo, Gris y Oasis)"
+                 data-tour-desc="El recorrido definitivo: visita El Cuzco (desierto rojo), Los Hoyos (desierto gris), el valle de los xilópalos fósiles y culmina con un baño refrescante en la piscina de agua mineral del oasis."
+                 data-tour-includes="Transporte en motocarro típico o 4x4|Guía bilingüe disponible|Almuerzo típico huilense (asado/sancocho)|Entrada a la piscina natural de Los Hoyos"
+                 data-tour-price="$140.000 COP">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80" 
+                 alt="Paisaje desértico con formaciones rocosas grises y oasis natural" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-600 text-white shadow">
+              Día Completo
+            </span>
+            <span class="absolute bottom-4 right-4 px-3 py-1 rounded-lg text-xs font-semibold bg-night-950/80 text-white backdrop-blur-sm">
+              6 Horas • Moderado
+            </span>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-display font-bold text-xl text-sand-900 dark:text-white group-hover:text-terracotta-600 dark:group-hover:text-amber-accent transition-colors mb-2">
+                Expedición Integral (Rojo + Gris)
+              </h3>
+              <p class="text-sm text-sand-600 dark:text-sand-300 line-clamp-3 mb-4">
+                Conoce los dos contrastes del desierto: la arcilla escarlata de El Cuzco y el paisaje lunar de Los Hoyos con baño en el manantial.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex items-baseline justify-between pt-4 border-t border-sand-200 dark:border-night-800 mb-5">
+                <div>
+                  <span class="text-xs text-sand-500 dark:text-sand-400 block">Tarifa por persona</span>
+                  <span class="font-display font-bold text-2xl text-terracotta-600 dark:text-amber-accent">$140.000 COP</span>
+                </div>
+                <button type="button" class="btn-tour-detail text-xs font-semibold text-sand-700 dark:text-sand-300 underline hover:text-amber-accent" aria-label="Ver detalles de la Expedición Integral">
+                  Ver detalles
+                </button>
+              </div>
+
+              <a href="#contacto" class="w-full inline-flex items-center justify-center py-3 px-4 rounded-xl text-sm font-bold bg-terracotta-600 hover:bg-terracotta-700 text-white transition-all shadow hover:shadow-md focus-visible:ring-2 focus-visible:ring-terracotta-600">
+                Reservar Tour
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. COMPONENTE EXTRA 1: PREGUNTAS FRECUENTES (FAQ EN ACORDEÓN CON JS)
+       ========================================================================== -->
+  <section id="faq" class="py-20 bg-sand-100 dark:bg-night-900 transition-colors">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600 dark:text-amber-accent">
+          Todo lo que necesitas saber
+        </span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-sand-900 dark:text-white mt-2">
+          Preguntas Frecuentes
+        </h2>
+      </div>
+
+      <!-- Contenedor del Acordeón -->
+      <div class="space-y-4">
+        
+        <!-- Pregunta 1 -->
+        <div class="bg-sand-50 dark:bg-night-800 rounded-xl border border-sand-200 dark:border-night-700 overflow-hidden shadow-sm">
+          <button class="accordion-btn w-full p-5 text-left font-display font-semibold text-base sm:text-lg text-sand-900 dark:text-white flex items-center justify-between gap-4 focus-visible:ring-2 focus-visible:ring-amber-accent"
+                  aria-expanded="false" 
+                  aria-controls="faq-panel-1">
+            <span>¿Cuál es la mejor temporada del año para observar las estrellas?</span>
+            <svg class="accordion-chevron w-5 h-5 text-terracotta-600 dark:text-amber-accent transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="faq-panel-1" class="hidden p-5 pt-0 text-sm text-sand-700 dark:text-sand-300 border-t border-sand-200/60 dark:border-night-700/60" aria-hidden="true">
+            La Tatacoa goza de noches despejadas durante casi todo el año. Sin embargo, los meses con menor probabilidad de nubes son de <strong>junio a septiembre</strong> y de <strong>diciembre a febrero</strong>. Para ver estrellas fugaces y la Vía Láctea con mayor nitidez, recomendamos fechas cercanas a la Luna Nueva.
+          </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="bg-sand-50 dark:bg-night-800 rounded-xl border border-sand-200 dark:border-night-700 overflow-hidden shadow-sm">
+          <button class="accordion-btn w-full p-5 text-left font-display font-semibold text-base sm:text-lg text-sand-900 dark:text-white flex items-center justify-between gap-4 focus-visible:ring-2 focus-visible:ring-amber-accent"
+                  aria-expanded="false" 
+                  aria-controls="faq-panel-2">
+            <span>¿Qué ropa y calzado se recomienda llevar al desierto?</span>
+            <svg class="accordion-chevron w-5 h-5 text-terracotta-600 dark:text-amber-accent transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="faq-panel-2" class="hidden p-5 pt-0 text-sm text-sand-700 dark:text-sand-300 border-t border-sand-200/60 dark:border-night-700/60" aria-hidden="true">
+            Para el día, usa ropa fresca de algodón o lino de manga larga para protegerte de la radiación solar, sombrero de ala ancha, protector solar y zapatos cerrados con buen agarre para caminar sobre arcilla. Para la noche, lleva una chaqueta liviana, pues la temperatura desciende notablemente.
+          </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="bg-sand-50 dark:bg-night-800 rounded-xl border border-sand-200 dark:border-night-700 overflow-hidden shadow-sm">
+          <button class="accordion-btn w-full p-5 text-left font-display font-semibold text-base sm:text-lg text-sand-900 dark:text-white flex items-center justify-between gap-4 focus-visible:ring-2 focus-visible:ring-amber-accent"
+                  aria-expanded="false" 
+                  aria-controls="faq-panel-3">
+            <span>¿Cómo llego a Villavieja desde Neiva?</span>
+            <svg class="accordion-chevron w-5 h-5 text-terracotta-600 dark:text-amber-accent transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="faq-panel-3" class="hidden p-5 pt-0 text-sm text-sand-700 dark:text-sand-300 border-t border-sand-200/60 dark:border-night-700/60" aria-hidden="true">
+            Desde la Terminal de Transportes de Neiva salen colectivos o vans hacia Villavieja cada 45 minutos (duración aproximada: 45 minutos). También puedes tomar un servicio de taxi o nuestro transporte privado coordinado que te recoge directamente en tu hotel o en el aeropuerto de Neiva.
+          </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="bg-sand-50 dark:bg-night-800 rounded-xl border border-sand-200 dark:border-night-700 overflow-hidden shadow-sm">
+          <button class="accordion-btn w-full p-5 text-left font-display font-semibold text-base sm:text-lg text-sand-900 dark:text-white flex items-center justify-between gap-4 focus-visible:ring-2 focus-visible:ring-amber-accent"
+                  aria-expanded="false" 
+                  aria-controls="faq-panel-4">
+            <span>¿Los recorridos son aptos para niños y adultos mayores?</span>
+            <svg class="accordion-chevron w-5 h-5 text-terracotta-600 dark:text-amber-accent transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="faq-panel-4" class="hidden p-5 pt-0 text-sm text-sand-700 dark:text-sand-300 border-t border-sand-200/60 dark:border-night-700/60" aria-hidden="true">
+            ¡Totalmente! Contamos con senderos de dificultad baja adaptados para familias, y transporte en motocarros tradicionales para quienes no deseen realizar caminatas prolongadas bajo el sol. La sesión astronómica es apta y recomendada para todas las edades.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. FORMULARIO DE RESERVA CON VALIDACIÓN JS EN TIEMPO REAL
+       ========================================================================== -->
+  <section id="contacto" class="py-20 sm:py-28 bg-sand-50 dark:bg-night-950 transition-colors">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600 dark:text-amber-accent">
+          Asegura Tu Cupo Hoy
+        </span>
+        <h2 class="font-display font-bold text-3xl sm:text-5xl text-sand-900 dark:text-white mt-2 mb-4">
+          Reserva Tu Expedición
+        </h2>
+        <p class="text-sand-600 dark:text-sand-400 text-base max-w-xl mx-auto">
+          Diligencia el formulario. Validaremos tu disponibilidad y te responderemos en menos de dos horas con los detalles de confirmación.
+        </p>
+      </div>
+
+      <!-- Formulario Accesible con Etiquetas y Spans de Error -->
+      <form id="reservation-form" class="bg-white dark:bg-night-900 p-8 sm:p-10 rounded-2xl shadow-xl border border-sand-200 dark:border-night-800 space-y-6" novalidate>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Campo: Nombre Completo -->
+          <div>
+            <label for="res-name" class="block text-sm font-semibold text-sand-800 dark:text-sand-200 mb-2">
+              Nombre Completo <span class="text-red-500">*</span>
+            </label>
+            <input type="text" 
+                   id="res-name" 
+                   name="nombre" 
+                   placeholder="Ej. Carlos Mendoza" 
+                   class="w-full px-4 py-3 rounded-xl border border-sand-300 dark:border-night-700 bg-sand-50/50 dark:bg-night-800 text-sand-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-accent transition-all text-sm"
+                   required>
+            <span id="res-name-error" class="hidden text-xs text-red-500 mt-1.5 block font-medium"></span>
+          </div>
+
+          <!-- Campo: Correo Electrónico -->
+          <div>
+            <label for="res-email" class="block text-sm font-semibold text-sand-800 dark:text-sand-200 mb-2">
+              Correo Electrónico <span class="text-red-500">*</span>
+            </label>
+            <input type="email" 
+                   id="res-email" 
+                   name="correo" 
+                   placeholder="tu@correo.com" 
+                   class="w-full px-4 py-3 rounded-xl border border-sand-300 dark:border-night-700 bg-sand-50/50 dark:bg-night-800 text-sand-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-accent transition-all text-sm"
+                   required>
+            <span id="res-email-error" class="hidden text-xs text-red-500 mt-1.5 block font-medium"></span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <!-- Campo: Tour de Interés -->
+          <div class="sm:col-span-1">
+            <label for="res-tour" class="block text-sm font-semibold text-sand-800 dark:text-sand-200 mb-2">
+              Tour Deseado <span class="text-red-500">*</span>
+            </label>
+            <select id="res-tour" 
+                    name="tour" 
+                    class="w-full px-4 py-3 rounded-xl border border-sand-300 dark:border-night-700 bg-sand-50/50 dark:bg-night-800 text-sand-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-accent transition-all text-sm"
+                    required>
+              <option value="">Selecciona un tour...</option>
+              <option value="cuzco">Sendero El Cuzco ($65.000)</option>
+              <option value="astronomico">Safari Astronómico ($90.000)</option>
+              <option value="integral">Expedición Integral ($140.000)</option>
+            </select>
+            <span id="res-tour-error" class="hidden text-xs text-red-500 mt-1.5 block font-medium"></span>
+          </div>
+
+          <!-- Campo: Fecha del Viaje -->
+          <div>
+            <label for="res-date" class="block text-sm font-semibold text-sand-800 dark:text-sand-200 mb-2">
+              Fecha de la Visita <span class="text-red-500">*</span>
+            </label>
+            <input type="date" 
+                   id="res-date" 
+                   name="fecha" 
+                   class="w-full px-4 py-3 rounded-xl border border-sand-300 dark:border-night-700 bg-sand-50/50 dark:bg-night-800 text-sand-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-accent transition-all text-sm"
+                   required>
+            <span id="res-date-error" class="hidden text-xs text-red-500 mt-1.5 block font-medium"></span>
+          </div>
+
+          <!-- Campo: Número de Personas (1 a 10) -->
+          <div>
+            <label for="res-people" class="block text-sm font-semibold text-sand-800 dark:text-sand-200 mb-2">
+              Personas (1 a 10) <span class="text-red-500">*</span>
+            </label>
+            <input type="number" 
+                   id="res-people" 
+                   name="personas" 
+                   min="1" 
+                   max="10" 
+                   value="2" 
+                   class="w-full px-4 py-3 rounded-xl border border-sand-300 dark:border-night-700 bg-sand-50/50 dark:bg-night-800 text-sand-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-accent transition-all text-sm"
+                   required>
+            <span id="res-people-error" class="hidden text-xs text-red-500 mt-1.5 block font-medium"></span>
+          </div>
+        </div>
+
+        <!-- Campo: Comentarios Adicionales -->
+        <div>
+          <label for="res-comments" class="block text-sm font-semibold text-sand-800 dark:text-sand-200 mb-2">
+            Comentarios o requerimientos especiales (opcional)
+          </label>
+          <textarea id="res-comments" 
+                    name="comentarios" 
+                    rows="3" 
+                    placeholder="¿Requieres transporte desde Neiva? ¿Tienes restricciones de salud o alimentación?" 
+                    class="w-full px-4 py-3 rounded-xl border border-sand-300 dark:border-night-700 bg-sand-50/50 dark:bg-night-800 text-sand-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-accent transition-all text-sm"></textarea>
+        </div>
+
+        <!-- Botón de Envío -->
+        <button type="submit" 
+                class="w-full py-4 px-6 rounded-xl font-display font-bold text-base text-white bg-terracotta-600 hover:bg-terracotta-700 active:scale-[0.99] transition-all shadow-lg hover:shadow-terracotta-600/30 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-terracotta-600 cursor-pointer">
+          Confirmar y Enviar Solicitud de Reserva
+        </button>
+
+        <p class="text-center text-xs text-sand-500 dark:text-sand-400">
+          Tus datos están protegidos. No cobramos cargos por adelantado hasta validar tu fecha.
+        </p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. COMPONENTE EXTRA 2: MODAL EMERGENTE DE DETALLE RÁPIDO DE TOUR
+       ========================================================================== -->
+  <div id="tour-detail-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-tour-title">
+    <!-- Fondo oscuro difuminado (Backdrop) -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-night-950/80 backdrop-blur-sm transition-opacity"></div>
+
+    <!-- Contenedor del Modal -->
+    <div class="relative z-10 w-full max-w-lg bg-white dark:bg-night-900 rounded-2xl shadow-2xl border border-sand-200 dark:border-night-700 p-6 sm:p-8 animate-fade-in">
+      <div class="flex items-start justify-between mb-4">
+        <h3 id="modal-tour-title" class="font-display font-bold text-2xl text-sand-900 dark:text-white"></h3>
+        <button id="close-modal-btn" class="p-2 text-sand-500 hover:text-sand-900 dark:hover:text-white rounded-lg hover:bg-sand-100 dark:hover:bg-night-800 focus-visible:ring-2 focus-visible:ring-amber-accent" aria-label="Cerrar modal">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <p id="modal-tour-desc" class="text-sm text-sand-700 dark:text-sand-300 leading-relaxed mb-6"></p>
+
+      <div class="mb-6">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-terracotta-600 dark:text-amber-accent mb-3">¿Qué incluye este tour?</h4>
+        <ul id="modal-tour-includes" class="space-y-2 text-sm text-sand-700 dark:text-sand-300"></ul>
+      </div>
+
+      <div class="flex items-center justify-between pt-4 border-t border-sand-200 dark:border-night-800">
+        <div>
+          <span class="text-xs text-sand-500 block">Tarifa por cupo</span>
+          <span id="modal-tour-price" class="font-display font-bold text-xl text-terracotta-600 dark:text-amber-accent"></span>
+        </div>
+        <a href="#contacto" onclick="document.getElementById('tour-detail-modal').classList.add('hidden')" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-amber-accent text-night-950 hover:bg-amber-hover transition-colors">
+          Reservar Ahora
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       8. TOAST NOTIFICACIÓN FLOTANTE ACCESIBLE (VERDE DE ÉXITO)
+       ========================================================================== -->
+  <div id="notification-toast" 
+       class="hidden fixed bottom-6 right-6 z-50 max-w-md bg-emerald-600 text-white px-5 py-4 rounded-xl shadow-2xl flex items-start gap-3 transform translate-y-10 opacity-0 transition-all duration-300 border border-emerald-500"
+       role="status" 
+       aria-live="polite">
+    <div class="p-1 bg-white/20 rounded-full flex-shrink-0 mt-0.5">
+      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+    <div class="flex-1">
+      <h4 class="font-bold text-sm">¡Solicitud Procesada!</h4>
+      <p id="toast-message" class="text-xs text-emerald-100 mt-0.5 leading-snug"></p>
+    </div>
+    <button id="toast-close-btn" class="text-emerald-200 hover:text-white p-1 rounded-md transition-colors" aria-label="Cerrar notificación">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       9. PIE DE PÁGINA (FOOTER)
+       ========================================================================== -->
+  <footer class="bg-sand-900 text-sand-300 dark:bg-night-950 dark:text-sand-400 py-16 border-t border-sand-800 dark:border-night-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Columna Marca -->
+        <div class="md:col-span-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-terracotta-600 to-amber-accent flex items-center justify-center text-night-950 font-bold">
+              ★
+            </div>
+            <span class="font-display font-bold text-lg text-white">TATACOA EXPEDITIONS</span>
+          </div>
+          <p class="text-xs text-sand-400 leading-relaxed mb-4">
+            Agencia local de ecoturismo y astroturismo comprometida con el desarrollo comunitario y la conservación del desierto.
+          </p>
+          <span class="inline-block text-xs text-amber-accent font-semibold">RNT No. 89241 • Villavieja, Huila</span>
+        </div>
+
+        <!-- Columna Enlaces Rápidos -->
+        <div>
+          <h4 class="font-display font-semibold text-sm text-white uppercase tracking-wider mb-4">Navegación</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#inicio" class="hover:text-amber-accent transition-colors">Inicio</a></li>
+            <li><a href="#nosotros" class="hover:text-amber-accent transition-colors">Historia de la Tatacoa</a></li>
+            <li><a href="#tours" class="hover:text-amber-accent transition-colors">Rutas y Paquetes</a></li>
+            <li><a href="#faq" class="hover:text-amber-accent transition-colors">Preguntas Frecuentes</a></li>
+            <li><a href="#contacto" class="hover:text-amber-accent transition-colors">Reservas Online</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna Horarios y Operación -->
+        <div>
+          <h4 class="font-display font-semibold text-sm text-white uppercase tracking-wider mb-4">Horarios y Atención</h4>
+          <ul class="space-y-2 text-xs">
+            <li><strong class="text-white">Lunes a Domingo:</strong> 6:00 a.m. – 10:30 p.m.</li>
+            <li><strong class="text-white">Observatorio Astronómico:</strong> 6:30 p.m. – 10:00 p.m.</li>
+            <li><strong class="text-white">Salidas Cuzco:</strong> 5:30 a.m. y 4:30 p.m.</li>
+          </ul>
+        </div>
+
+        <!-- Columna Contacto y Ubicación -->
+        <div>
+          <h4 class="font-display font-semibold text-sm text-white uppercase tracking-wider mb-4">Sede Principal</h4>
+          <p class="text-xs leading-relaxed mb-2">
+            Calle 3 # 4-22, Parque Principal de Villavieja, Huila, Colombia.
+          </p>
+          <p class="text-xs mb-1">
+            <strong class="text-white">WhatsApp:</strong> +57 312 456 7890
+          </p>
+          <p class="text-xs">
+            <strong class="text-white">Email:</strong> info@tatacoaexpeditions.com
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Barra Inferior de Derechos -->
+      <div class="pt-8 border-t border-sand-800 dark:border-night-800 flex flex-col sm:flex-row items-center justify-between text-xs text-sand-500 gap-4">
+        <p>© 2026 Tatacoa Starlight Expeditions. Proyecto académico de Ingeniería de Software - FET.</p>
+        <p>Desarrollado con HTML5, Tailwind CSS 4 y JavaScript Modular.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       10. CARGA DEL JAVASCRIPT MODULAR (ES6 MODULES)
+       ========================================================================== -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
