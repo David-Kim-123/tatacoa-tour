@@ -198,14 +198,14 @@
   </section>
 
   <!-- ==========================================================================
-       3. SECCIÓN NOSOTROS / EL MISTERIO DE LA TATACOA (2 COLUMNAS)
+       3. SECCIÓN NOSOTROS / EL MISTERIO DE LA TATACOA (2 COLUMNAS ALINEADAS)
        ========================================================================== -->
   <section id="nosotros" class="py-20 sm:py-28 bg-sand-100 dark:bg-night-900 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
-        <!-- Columna Izquierda: Información Textual -->
-        <div>
+        <!-- Columna Izquierda: Información Textual y Tarjetas de Valor -->
+        <div class="flex flex-col justify-center">
           <span class="inline-block text-xs font-bold uppercase tracking-widest text-terracotta-600 dark:text-amber-accent mb-3">
             Ecoturismo Responsable en el Huila
           </span>
@@ -219,45 +219,49 @@
             En <strong>Tatacoa Starlight Expeditions</strong> promovemos un turismo sostenible que respeta los ecosistemas desérticos, apoya directamente a las familias campesinas de la región y acerca la ciencia astronómica a cada viajero.
           </p>
 
-          <!-- Lista de Valores Diferenciales con Íconos -->
+          <!-- Tarjetas de Características Alineadas -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="flex items-start gap-3 p-4 rounded-xl bg-sand-50 dark:bg-night-800 border border-sand-200 dark:border-night-700">
-              <div class="p-2 rounded-lg bg-terracotta-500/10 text-terracotta-600 dark:text-amber-accent">
+            <div class="flex items-start gap-3.5 p-4 rounded-xl bg-sand-50 dark:bg-night-800/80 border border-sand-200 dark:border-night-700 shadow-sm">
+              <div class="p-2.5 rounded-lg bg-terracotta-500/10 text-terracotta-600 dark:text-amber-accent flex-shrink-0">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               </div>
               <div>
                 <h3 class="font-bold text-sm text-sand-900 dark:text-white">Rutas Exclusivas</h3>
-                <p class="text-xs text-sand-600 dark:text-sand-400">Senderos protegidos en Cuzco y Los Hoyos.</p>
+                <p class="text-xs text-sand-600 dark:text-sand-400 mt-0.5 leading-snug">Senderos protegidos en Cuzco y Los Hoyos.</p>
               </div>
             </div>
 
-            <div class="flex items-start gap-3 p-4 rounded-xl bg-sand-50 dark:bg-night-800 border border-sand-200 dark:border-night-700">
-              <div class="p-2 rounded-lg bg-terracotta-500/10 text-terracotta-600 dark:text-amber-accent">
+            <div class="flex items-start gap-3.5 p-4 rounded-xl bg-sand-50 dark:bg-night-800/80 border border-sand-200 dark:border-night-700 shadow-sm">
+              <div class="p-2.5 rounded-lg bg-amber-accent/15 text-amber-accent flex-shrink-0">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
               </div>
               <div>
                 <h3 class="font-bold text-sm text-sand-900 dark:text-white">Astronomía Guiada</h3>
-                <p class="text-xs text-sand-600 dark:text-sand-400">Charlas con astrónomos certificados.</p>
+                <p class="text-xs text-sand-600 dark:text-sand-400 mt-0.5 leading-snug">Charlas con astrónomos certificados.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Columna Derecha: Imagen Doble con Efecto Visual -->
-        <div class="relative">
-          <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-night-800">
-            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80" 
-                 alt="Laberintos de tierra roja y formaciones geológicas de El Cuzco en el Desierto de la Tatacoa" 
-                 class="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-700">
-          </div>
-          <!-- Tarjeta Flotante con Testimonio / Sello -->
-          <div class="absolute -bottom-6 -left-6 z-20 hidden sm:flex items-center gap-4 bg-sand-50 dark:bg-night-800 p-5 rounded-xl shadow-xl border border-sand-200 dark:border-night-700 max-w-xs">
-            <div class="w-12 h-12 rounded-full bg-amber-accent/20 flex items-center justify-center text-amber-accent font-bold text-xl flex-shrink-0">
-              ★
-            </div>
-            <div>
-              <p class="text-xs font-bold text-sand-900 dark:text-white">Calificación 4.9/5</p>
-              <p class="text-xs text-sand-600 dark:text-sand-400">Reconocidos por viajeros de más de 25 países.</p>
+        <!-- Columna Derecha: Fotografía Real del Desierto con Insignia Integrada -->
+        <div class="relative w-full">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-night-800 group">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Cañones y laberintos de tierra roja característicos del Desierto de la Tatacoa" 
+                 class="w-full h-[440px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            
+            <!-- Capa sutil de gradiente inferior para asegurar legibilidad de la insignia -->
+            <div class="absolute inset-0 bg-gradient-to-t from-night-950/80 via-transparent to-transparent pointer-events-none"></div>
+
+            <!-- Insignia Elegante Integrada en la esquina inferior sin desbordarse -->
+            <div class="absolute bottom-5 left-5 right-5 sm:right-auto sm:max-w-xs z-20 flex items-center gap-3.5 bg-night-950/90 backdrop-blur-md p-4 rounded-xl shadow-2xl border border-white/15 text-white">
+              <div class="w-11 h-11 rounded-lg bg-gradient-to-tr from-amber-accent to-orange-400 flex items-center justify-center text-night-950 font-bold text-xl flex-shrink-0 shadow">
+                ★
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white leading-tight">Calificación 4.9 / 5.0</p>
+                <p class="text-xs text-sand-300 mt-0.5">Reconocidos por viajeros de más de 25 países.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -295,8 +299,8 @@
                  data-tour-includes="Guía local nativo certificado|Hidratación ecológica|Entrada a zonas protegidas|Seguro de asistencia médica"
                  data-tour-price="$65.000 COP">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80" 
-                 alt="Cañones y laberintos de arcilla roja en el sector El Cuzco" 
+            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80" 
+                 alt="Cañones y laberintos de arcilla roja en el sector El Cuzco del Desierto de la Tatacoa" 
                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
             <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-terracotta-600 text-white shadow">
               Más Popular
